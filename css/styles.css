@@ -49,6 +49,13 @@ gap:10px;
 height:80px;
 }
 
+@media (max-width:600px){
+
+.logo img{
+height:55px;
+}
+
+}
 /* MENU */
 
 .menu{
@@ -98,6 +105,14 @@ background:linear-gradient(180deg,#0f0f0f,#080808);
 .hero-content{
 max-width:750px;
 margin:auto;
+}
+
+.hero-logo{
+height:100px;
+margin-bottom:30px;
+display:block;
+margin-left:auto;
+margin-right:auto;
 }
 
 /* BADGE */
@@ -235,24 +250,15 @@ font-size:15px;
 
 /* EFECTO DE LUZ */
 
-.card::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(0,229,192,0.2),
-transparent
-);
-transition:1.0s;
+.card-icon{
+font-size:34px;
+margin-bottom:20px;
+transition:0.3s;
 }
 
-.card:hover::before{
-left:100%;
+.card:hover .card-icon{
+transform:scale(1.2);
+filter:drop-shadow(0 0 10px #00e5c0);
 }
 
 /* ABOUT */
@@ -288,6 +294,19 @@ padding:0;
 .about-list li{
 margin-bottom:10px;
 font-weight:500;
+}
+
+@media (max-width:700px){
+
+.about-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.about{
+text-align:center;
+}
+
 }
 
 /* TARJETA */
@@ -400,6 +419,101 @@ font-size:14px;
 opacity:0.85;
 line-height:1.6;
 }
+
+/* FAQ */
+
+.faq{
+padding:120px 0;
+background:#111;
+}
+
+.faq-container{
+max-width:800px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.faq-item{
+background:#1a1a1a;
+border-radius:10px;
+padding:20px 25px;
+border:1px solid rgba(255,255,255,0.05);
+cursor:pointer;
+transition:0.3s;
+}
+
+.faq-item:hover{
+border-color:#00e5c0;
+}
+
+.faq-item summary{
+font-weight:600;
+font-size:16px;
+list-style:none;
+cursor:pointer;
+}
+
+.faq-item summary::marker{
+display:none;
+}
+
+.faq-item p{
+margin-top:10px;
+opacity:0.8;
+font-size:14px;
+line-height:1.6;
+}
+
+/* ICONO FLECHA */
+
+.faq-item summary{
+font-weight:600;
+font-size:16px;
+list-style:none;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* FLECHA */
+
+.faq-item summary::after{
+content:"▼";
+font-size:12px;
+transition:0.3s;
+color:#00e5c0;
+}
+
+/* ROTACION CUANDO SE ABRE */
+
+.faq-item[open] summary::after{
+transform:rotate(180deg);
+}
+
+/* ANIMACION DE APERTURA */
+
+.faq-item p{
+margin-top:10px;
+opacity:0.8;
+font-size:14px;
+line-height:1.6;
+animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-5px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 
 /* RESPONSIVE */
 
@@ -557,7 +671,7 @@ font-size:13px;
 opacity:0.7;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE GENERAL */
 
 @media (max-width:900px){
 
@@ -569,6 +683,22 @@ grid-template-columns:1fr 1fr;
 
 @media (max-width:600px){
 
+.servicios,
+.about,
+.proceso,
+.contacto{
+padding:80px 0;
+}
+
+.section-header h2{
+font-size:28px;
+}
+
+.card{
+width:100%;
+max-width:320px;
+}
+
 .footer-content{
 grid-template-columns:1fr;
 text-align:center;
@@ -579,7 +709,6 @@ justify-content:center;
 }
 
 }
-
 
 .whatsapp-float{
 position:fixed;
@@ -606,3 +735,14 @@ html{
 scroll-behavior:smooth;
 }
 
+@media (max-width:600px){
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+}
